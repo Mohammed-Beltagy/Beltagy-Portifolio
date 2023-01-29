@@ -60,13 +60,26 @@ body {
 .landing {
   height: 100%;
   display: grid;
+  overflow: hidden;
   grid-template-rows: auto 1fr;
   background-color: var(--bg-color);
-  background-image: url(img/stars.svg);
-  background-size: 40px;
-  overflow: hidden;
+  background: linear-gradient(
+    to bottom right,
+    rgba(189, 224, 254, 1) 0%,
+    rgba(218, 196, 236, 1) 50%,
+    rgba(189, 224, 254, 1) 100%
+  );
+  background-size: 100000% 100000%;
+  animation: move-background 10s linear infinite;
 }
-
+@keyframes move-background {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 100% 100%;
+  }
+}
 /*  ============
     Header Rules
     ============  */
