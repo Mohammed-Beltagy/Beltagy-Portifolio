@@ -41,10 +41,7 @@
       <main>
         <div class="container">
           <!-- Planes Background -->
-          <img src="img/plane.svg" class="bg-plane" style="--i: 0" />
-          <img src="img/plane.svg" class="bg-plane" style="--i: 1" />
-          <img src="img/plane.svg" class="bg-plane" style="--i: 2" />
-          <img src="img/plane.svg" class="bg-plane" style="--i: 3" />
+          <img src="img/plane.svg" class="bg-plane" />
           <!-- Picture With Brackets -->
           <div class="img-brackets-container">
             <img src="img/left-bracket.svg" class="left-bracket bracket" />
@@ -76,20 +73,18 @@
     <script>
       // Change The Transform Origin For Planes To Be In The Center Of The Parent
       function changeOrigin() {
-        let planes = document.getElementsByClassName("bg-plane"),
+        let plane = document.getElementsByClassName("bg-plane")[0],
           planeWidth = parseFloat(
-            getComputedStyle(planes[0]).getPropertyValue("width")
+            getComputedStyle(plane).getPropertyValue("width")
           ),
           planeRight = parseFloat(
-            getComputedStyle(planes[0]).getPropertyValue("right")
+            getComputedStyle(plane).getPropertyValue("right")
           ),
           parentWidth = parseFloat(
-            getComputedStyle(planes[0].parentElement).getPropertyValue("width")
+            getComputedStyle(plane.parentElement).getPropertyValue("width")
           );
-        for (let i = 0; i < planes.length; i++) {
-          planes[i].style.transformOrigin =
-            (-1 * parentWidth) / 2 + planeWidth + planeRight + "px";
-        }
+        plane.style.transformOrigin =
+          (-1 * parentWidth) / 2 + planeWidth + planeRight + "px";
       }
       changeOrigin();
       window.addEventListener("resize", changeOrigin);

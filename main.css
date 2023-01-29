@@ -209,76 +209,51 @@ main .bg-plane {
 }
 @keyframes sm-plane-fly {
   0% {
-    transform: rotate(-60deg) scaleX(1);
+    transform: rotate(-60deg);
   }
   50% {
-    transform: rotate(-80deg) scaleX(1);
+    transform: rotate(-80deg);
   }
   100% {
-    transform: rotate(-60deg) scaleX(1);
+    transform: rotate(-60deg);
   }
-}
-main .bg-plane:not(:nth-child(1)) {
-  display: none;
 }
 @media (max-width: 460px) {
   main .bg-plane:nth-child(1) {
     display: none;
   }
 }
+@keyframes md-plane-fly {
+  0% {
+    transform: rotate(-45deg);
+  }
+  50% {
+    transform: rotate(-65deg);
+  }
+  100% {
+    transform: rotate(-45deg);
+  }
+}
 @media (min-width: 768px) {
   main .bg-plane {
-    display: block !important;
-    animation: 15s linear infinite;
+    width: 300px;
+    animation-name: md-plane-fly;
   }
-  main .bg-plane:nth-child(1) {
-    animation-name: plane-fly-1;
+}
+@keyframes lg-plane-fly {
+  0% {
+    transform: translateY(100px) rotate(-45deg);
+  }
+  50% {
+    transform: translateY(100px) rotate(-65deg);
+  }
+  100% {
+    transform: translateY(100px) rotate(-45deg);
   }
 }
 @media (min-width: 992px) {
   main .bg-plane {
-    width: 300px;
-  }
-}
-@keyframes plane-fly-1 {
-  from {
-    transform: rotate(360deg);
-  }
-  to {
-    transform: rotate(0deg);
-  }
-}
-main .bg-plane:nth-child(2) {
-  animation-name: plane-fly-2;
-}
-@keyframes plane-fly-2 {
-  from {
-    transform: rotate(270deg);
-  }
-  to {
-    transform: rotate(-90deg);
-  }
-}
-main .bg-plane:nth-child(3) {
-  animation-name: plane-fly-3;
-}
-@keyframes plane-fly-3 {
-  from {
-    transform: rotate(180deg);
-  }
-  to {
-    transform: rotate(-180deg);
-  }
-}
-main .bg-plane:nth-child(4) {
-  animation-name: plane-fly-4;
-}
-@keyframes plane-fly-4 {
-  from {
-    transform: rotate(90deg);
-  }
-  to {
-    transform: rotate(-270deg);
+    animation-name: lg-plane-fly;
   }
 }
 /* Picture Style */
