@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Beltagy Portifolio</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Normalize File -->
+    <link rel="stylesheet" href="normalize.css" />
+    <!-- Own Style File -->
+    <link rel="stylesheet" href="main.css" />
+  </head>
+  <body lang="en">
+    <section class="landing">
+      <header>
+        <div class="container">
+          <h2 class="logo">
+            <a href="https://github.com/Mohammed-Beltagy" target="_blank">
+              Beltagy
+              <img src="img/paper-plane.svg" alt="!" />
+            </a>
+          </h2>
+          <nav>
+            <span>About Me</span>
+            <span>Portofolio</span>
+            <span>Contact</span>
+          </nav>
+        </div>
+      </header>
+      <main>
+        <div class="container">
+          <!-- Planes Background -->
+          <img src="img/plane.svg" class="bg-plane" style="--i: 0" />
+          <img src="img/plane.svg" class="bg-plane" style="--i: 1" />
+          <img src="img/plane.svg" class="bg-plane" style="--i: 2" />
+          <img src="img/plane.svg" class="bg-plane" style="--i: 3" />
+          <!-- Picture With Brackets -->
+          <div class="img-brackets-container">
+            <img src="img/left-bracket.svg" class="left-bracket bracket" />
+            <img src="img/right-bracket.svg" class="right-bracket bracket" />
+            <div class="img-container">
+              <img src="img/pic-nobg.png" alt="Beltagy Picture" />
+            </div>
+          </div>
+          <!-- Text Under Picture -->
+          <div class="text">
+            <h2 class="highlighted-text">Hello, I'm Front End Developer.</h2>
+            <p>
+              My name is <span class="highlighted-text">Mohammed Beltagy</span>,
+              lives in Egypt.
+            </p>
+            <p>
+              I can build you a website using:
+              <span class="highlighted-text">HTML</span>,
+              <span class="highlighted-text">CSS</span>,
+              <span class="highlighted-text">JAVASCRIPT</span>&
+              <span class="highlighted-text">GITHUB</span>
+            </p>
+          </div>
+        </div>
+      </main>
+    </section>
+
+    <!-- Script -->
+    <script>
+      // Change The Transform Origin For Planes To Be In The Center Of The Parent
+      function changeOrigin() {
+        let planes = document.getElementsByClassName("bg-plane"),
+          planeWidth = parseFloat(
+            getComputedStyle(planes[0]).getPropertyValue("width")
+          ),
+          planeRight = parseFloat(
+            getComputedStyle(planes[0]).getPropertyValue("right")
+          ),
+          parentWidth = parseFloat(
+            getComputedStyle(planes[0].parentElement).getPropertyValue("width")
+          );
+        for (let i = 0; i < planes.length; i++) {
+          planes[i].style.transformOrigin =
+            (-1 * parentWidth) / 2 + planeWidth + planeRight + "px";
+        }
+      }
+      changeOrigin();
+      window.addEventListener("resize", changeOrigin);
+    </script>
+  </body>
+</html>
