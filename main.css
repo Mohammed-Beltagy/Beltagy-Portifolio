@@ -22,6 +22,11 @@ body {
   font-family: "Cairo", sans-serif;
   height: 100vh;
 }
+@media (max-width: 460px) {
+  body {
+    font-size: 13px;
+  }
+}
 .highlighted-text {
   color: var(--accent-color) !important;
   font-weight: bold !important;
@@ -30,6 +35,11 @@ body {
 .container {
   padding: 20px 16px;
   margin: 0 auto;
+}
+@media (min-width: 576px) {
+  .container {
+    width: 570px;
+  }
 }
 @media (min-width: 768px) {
   .container {
@@ -69,7 +79,6 @@ header .container {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  /* border-bottom: 2px solid var(--logo-text-color); */
 }
 header .container::after {
   content: "";
@@ -86,21 +95,36 @@ header .logo {
 }
 header .logo a {
   position: relative;
+  display: flex;
   color: var(--accent-color);
   font-weight: bold;
-  letter-spacing: 1.5px;
   font-size: 2em;
+  letter-spacing: 1.5px;
   text-decoration: none;
   user-select: none;
 }
 header .logo a img {
-  position: absolute;
-  left: 100%;
-  top: 50%;
-  transform: translateY(-40%);
-  height: 50%;
+  width: 50px;
 }
-header nav span {
+@media (max-width: 305px) {
+  header .logo a img {
+    display: none;
+  }
+}
+@media (max-width: 460px) {
+  header .logo a img {
+    width: 40px;
+  }
+}
+header nav {
+  display: flex;
+}
+@media (max-width: 460px) {
+  header nav {
+    flex-direction: column;
+  }
+}
+header nav a {
   position: relative;
   display: inline-block;
   margin-left: 20px;
@@ -110,12 +134,19 @@ header nav span {
   font-weight: bold;
   font-size: 1.2em;
   transition: color 0.1s;
+  text-decoration: none;
 }
-header nav span:hover {
+@media (max-width: 460px) {
+  header nav a {
+    margin-left: 0;
+    margin-top: 5px;
+  }
+}
+header nav a:hover {
   cursor: pointer;
   color: var(--accent-color);
 }
-header nav span::before {
+header nav a::before {
   /* Insert ( | ) At Left */
   content: "";
   position: absolute;
@@ -126,12 +157,12 @@ header nav span::before {
   background-color: var(--ordinary-color);
   transition: background-color 0.1s 0.3s, height 0.1s 0.3s;
 }
-header nav span:hover::before {
+header nav a:hover::before {
   background-color: var(--accent-color);
   height: 100%;
   transition-delay: 0s;
 }
-header nav span::after {
+header nav a::after {
   /* Under Line The Word */
   content: "";
   position: absolute;
@@ -142,7 +173,7 @@ header nav span::after {
   background-color: var(--accent-color);
   transition: width 0.3s;
 }
-header nav span:hover::after {
+header nav a:hover::after {
   width: 100%;
   transition-delay: 0.1s;
 }
@@ -166,26 +197,48 @@ main .container {
   justify-content: center;
   align-items: center;
 }
+/* Planes Style */
 main .bg-plane {
   position: absolute;
   z-index: -1;
-  width: 300px;
   top: calc(50% - 150px);
   right: -100px;
+  width: 200px;
   user-select: none;
-  animation: 15s linear infinite;
+  animation: sm-plane-fly 9s ease-in-out infinite;
 }
-main .bg-plane:nth-child(1) {
-  animation-name: plane-fly-1;
+@keyframes sm-plane-fly {
+  0% {
+    transform: rotate(-60deg) scaleX(1);
+  }
+  50% {
+    transform: rotate(-80deg) scaleX(1);
+  }
+  100% {
+    transform: rotate(-60deg) scaleX(1);
+  }
 }
-main .bg-plane:nth-child(2) {
-  animation-name: plane-fly-2;
+main .bg-plane:not(:nth-child(1)) {
+  display: none;
 }
-main .bg-plane:nth-child(3) {
-  animation-name: plane-fly-3;
+@media (max-width: 460px) {
+  main .bg-plane:nth-child(1) {
+    display: none;
+  }
 }
-main .bg-plane:nth-child(4) {
-  animation-name: plane-fly-4;
+@media (min-width: 768px) {
+  main .bg-plane {
+    display: block !important;
+    animation: 15s linear infinite;
+  }
+  main .bg-plane:nth-child(1) {
+    animation-name: plane-fly-1;
+  }
+}
+@media (min-width: 992px) {
+  main .bg-plane {
+    width: 300px;
+  }
 }
 @keyframes plane-fly-1 {
   from {
@@ -195,6 +248,9 @@ main .bg-plane:nth-child(4) {
     transform: rotate(0deg);
   }
 }
+main .bg-plane:nth-child(2) {
+  animation-name: plane-fly-2;
+}
 @keyframes plane-fly-2 {
   from {
     transform: rotate(270deg);
@@ -202,6 +258,9 @@ main .bg-plane:nth-child(4) {
   to {
     transform: rotate(-90deg);
   }
+}
+main .bg-plane:nth-child(3) {
+  animation-name: plane-fly-3;
 }
 @keyframes plane-fly-3 {
   from {
@@ -211,6 +270,9 @@ main .bg-plane:nth-child(4) {
     transform: rotate(-180deg);
   }
 }
+main .bg-plane:nth-child(4) {
+  animation-name: plane-fly-4;
+}
 @keyframes plane-fly-4 {
   from {
     transform: rotate(90deg);
@@ -219,16 +281,33 @@ main .bg-plane:nth-child(4) {
     transform: rotate(-270deg);
   }
 }
+/* Picture Style */
 .img-brackets-container {
   width: fit-content;
   position: relative;
   width: 240px;
   height: 220px;
 }
+@media (max-height: 600px) {
+  .img-brackets-container {
+    width: 160px;
+    height: 140px;
+  }
+}
+@media (max-height: 450px) {
+  .img-brackets-container {
+    display: none;
+  }
+}
 .img-brackets-container .bracket {
   position: absolute;
   height: 100%;
   user-select: none;
+}
+@media (max-width: 400px) {
+  .img-brackets-container .bracket {
+    display: none;
+  }
 }
 .img-brackets-container .left-bracket {
   right: calc(100% + 30px);
@@ -236,12 +315,20 @@ main .bg-plane:nth-child(4) {
 .img-brackets-container .right-bracket {
   left: calc(100% + 30px);
 }
+@media (max-width: 460px) {
+  .img-brackets-container .left-bracket {
+    right: calc(100% - 10px);
+  }
+  .img-brackets-container .right-bracket {
+    left: calc(100% - 10px);
+  }
+}
 main .img-container {
   position: relative;
   padding: 0;
   margin-bottom: 20px;
-  width: 240px;
-  height: 220px;
+  width: 100%;
+  height: 100%;
   border-radius: 51% 49% 59% 41% / 80% 50% 50% 20%;
 }
 main .img-container::before {
@@ -257,6 +344,7 @@ main .img-container img {
   top: -20px;
   left: 0;
 }
+/* Text Style */
 main .text {
   margin-top: 30px;
   color: var(--ordinary-color);
@@ -265,6 +353,11 @@ main .text {
 main .text h2 {
   font-size: 1.6em;
   margin: 10px;
+}
+@media (max-height: 600px) {
+  main .text {
+    margin-top: 0;
+  }
 }
 main .text p {
   font-size: 1.2em;
