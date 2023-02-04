@@ -20,22 +20,7 @@
   <body lang="en">
     <section class="landing">
       <!-- Header Section -->
-      <header>
-        <div class="container">
-          <h2 class="logo">
-            <a href="https://github.com/Mohammed-Beltagy" target="_blank">
-              <img src="img/front-end-icon.svg" alt="!" />
-              Beltagy
-            </a>
-          </h2>
-          <nav>
-            <a href="#projects">Projects</a>
-            <a href="https://codepen.io/Mohammed-Beltagy" target="_blank"
-              >Code Pen</a
-            >
-          </nav>
-        </div>
-      </header>
+      <header></header>
 
       <!-- Main Section -->
       <main>
@@ -81,7 +66,7 @@
             getComputedStyle(plane).getPropertyValue("right")
           ),
           parentWidth = parseFloat(
-            getComputedStyle(plane.parentElement).getPropertyValue("width")
+            getComputedStyle(plane.parentElement).getPropertyValue("height")
           );
         plane.style.transformOrigin =
           (-1 * parentWidth) / 2 + planeWidth + planeRight + "px";
