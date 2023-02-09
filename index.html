@@ -18,56 +18,34 @@
     <link rel="stylesheet" href="main.css" />
   </head>
   <body lang="en">
-    <section class="landing">
-      <!-- Header Section -->
-      <header>
-        <div class="container">
-          <h2 class="logo">
-            <a href="https://github.com/Mohammed-Beltagy" target="_blank">
-              <img src="img/front-end-icon.svg" alt="!" />
-              Beltagy
-            </a>
-          </h2>
-          <nav>
-            <a href="#projects">Projects</a>
-            <a href="https://codepen.io/Mohammed-Beltagy" target="_blank"
-              >Code Pen</a
-            >
-          </nav>
+    <!-- Main Section -->
+    <main class="landing">
+      <!-- Planes Background -->
+      <img src="img/plane.svg" class="bg-plane" />
+      <!-- Picture With Brackets -->
+      <div class="img-brackets-container">
+        <img src="img/left-bracket.svg" class="left-bracket bracket" />
+        <img src="img/right-bracket.svg" class="right-bracket bracket" />
+        <div class="img-container">
+          <img src="img/pic-nobg.png" alt="Beltagy Picture" />
         </div>
-      </header>
-
-      <!-- Main Section -->
-      <main>
-        <div class="container">
-          <!-- Planes Background -->
-          <img src="img/plane.svg" class="bg-plane" />
-          <!-- Picture With Brackets -->
-          <div class="img-brackets-container">
-            <img src="img/left-bracket.svg" class="left-bracket bracket" />
-            <img src="img/right-bracket.svg" class="right-bracket bracket" />
-            <div class="img-container">
-              <img src="img/pic-nobg.png" alt="Beltagy Picture" />
-            </div>
-          </div>
-          <!-- Text Under Picture -->
-          <div class="text">
-            <h2 class="highlighted-text">Hello, I'm Front End Developer.</h2>
-            <p>
-              My name is <span class="highlighted-text">Mohammed Beltagy</span>,
-              lives in Egypt.
-            </p>
-            <p>
-              I can build you a website using:
-              <span class="highlighted-text">HTML</span>,
-              <span class="highlighted-text">CSS</span>,
-              <span class="highlighted-text">JAVASCRIPT</span>&
-              <span class="highlighted-text">GITHUB</span>
-            </p>
-          </div>
-        </div>
-      </main>
-    </section>
+      </div>
+      <!-- Text Under Picture -->
+      <div class="text">
+        <h2 class="highlighted-text">Hello, I'm Front End Developer.</h2>
+        <p>
+          My name is <span class="highlighted-text">Mohammed Beltagy</span>,
+          lives in Egypt.
+        </p>
+        <p>
+          I can build you a website using:
+          <span class="highlighted-text">HTML</span>,
+          <span class="highlighted-text">CSS</span>,
+          <span class="highlighted-text">JAVASCRIPT</span>&
+          <span class="highlighted-text">GITHUB</span>
+        </p>
+      </div>
+    </main>
 
     <!-- Script -->
     <script>
@@ -80,11 +58,11 @@
           planeRight = parseFloat(
             getComputedStyle(plane).getPropertyValue("right")
           ),
-          parentWidth = parseFloat(
-            getComputedStyle(plane.parentElement).getPropertyValue("width")
+          parentHeight = parseFloat(
+            getComputedStyle(plane.parentElement).getPropertyValue("height")
           );
         plane.style.transformOrigin =
-          (-1 * parentWidth) / 2 + planeWidth + planeRight + "px";
+          (-1 * parentHeight) / 2 + planeWidth + planeRight + "px";
       }
       changeOrigin();
       window.addEventListener("resize", changeOrigin);
