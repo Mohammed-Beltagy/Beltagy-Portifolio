@@ -16,7 +16,7 @@
 }
 body {
   --bg-color: #bde0fe;
-  --light-bg-color: #e1f1ff;
+  --light-bg-color: rgb(225, 241, 255);
   --accent-color: #5e96f5;
   --ordinary-color: #3b4a65;
   font-family: "Cairo", sans-serif;
@@ -93,7 +93,9 @@ main {
 }
 /* Planes Style */
 main .bg-plane {
+  color: var(--light-bg-color);
   position: absolute;
+  display: block;
   z-index: -1;
   top: calc(50% - 150px);
   right: -100px;
@@ -146,9 +148,11 @@ main .bg-plane {
   }
 }
 .img-brackets-container .left-bracket {
+  color: var(--light-bg-color);
   right: calc(100% + 30px);
 }
 .img-brackets-container .right-bracket {
+  color: var(--light-bg-color);
   left: calc(100% + 30px);
 }
 @media (max-width: 460px) {

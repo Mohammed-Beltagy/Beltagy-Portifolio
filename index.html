@@ -21,11 +21,16 @@
     <!-- Main Section -->
     <main class="landing">
       <!-- Planes Background -->
-      <img src="img/plane.svg" class="bg-plane" />
+      <svg
+        id="bg-plane"
+        class="bg-plane"
+        viewBox="0 0 1080 1080"
+        xml:space="preserve"
+      ></svg>
       <!-- Picture With Brackets -->
       <div class="img-brackets-container">
-        <img src="img/left-bracket.svg" class="left-bracket bracket" />
-        <img src="img/right-bracket.svg" class="right-bracket bracket" />
+        <svg id="left-bracket" class="left-bracket bracket"></svg>
+        <svg id="right-bracket" class="right-bracket bracket"></svg>
         <div class="img-container">
           <img src="img/pic-nobg.png" alt="Beltagy Picture" />
         </div>
@@ -48,24 +53,8 @@
     </main>
 
     <!-- Script -->
-    <script>
-      // Change The Transform Origin For Planes To Be In The Center Of The Parent
-      function changeOrigin() {
-        let plane = document.getElementsByClassName("bg-plane")[0],
-          planeWidth = parseFloat(
-            getComputedStyle(plane).getPropertyValue("width")
-          ),
-          planeRight = parseFloat(
-            getComputedStyle(plane).getPropertyValue("right")
-          ),
-          parentHeight = parseFloat(
-            getComputedStyle(plane.parentElement).getPropertyValue("height")
-          );
-        plane.style.transformOrigin =
-          (-1 * parentHeight) / 2 + planeWidth + planeRight + "px";
-      }
-      changeOrigin();
-      window.addEventListener("resize", changeOrigin);
-    </script>
+    <script src="js/plane.js"></script>
+    <script src="js/left-bracket.js"></script>
+    <script src="js/right-bracket.js"></script>
   </body>
 </html>
