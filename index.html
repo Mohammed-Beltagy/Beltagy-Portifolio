@@ -18,40 +18,106 @@
     <link rel="stylesheet" href="main.css" />
   </head>
   <body lang="en">
-    <section class="landing">
-      <!-- Header Section -->
-      <header></header>
-
-      <!-- Main Section -->
-      <main>
-        <div class="container">
-          <!-- Planes Background -->
-          <img src="img/plane.svg" class="bg-plane" />
-          <!-- Picture With Brackets -->
-          <div class="img-brackets-container">
-            <img src="img/left-bracket.svg" class="left-bracket bracket" />
-            <img src="img/right-bracket.svg" class="right-bracket bracket" />
-            <div class="img-container">
-              <img src="img/pic-nobg.png" alt="Beltagy Picture" />
-            </div>
-          </div>
-          <!-- Text Under Picture -->
-          <div class="text">
-            <h2 class="highlighted-text">Hello, I'm Front End Developer.</h2>
-            <p>
-              My name is <span class="highlighted-text">Mohammed Beltagy</span>,
-              lives in Egypt.
-            </p>
-            <p>
-              I can build you a website using:
-              <span class="highlighted-text">HTML</span>,
-              <span class="highlighted-text">CSS</span>,
-              <span class="highlighted-text">JAVASCRIPT</span>&
-              <span class="highlighted-text">GITHUB</span>
-            </p>
+    <!-- Main Section -->
+    <main>
+      <div class="container">
+        <!-- Planes Background -->
+        <img src="img/plane.svg" class="bg-plane" />
+        <!-- Picture With Brackets -->
+        <div class="img-brackets-container">
+          <img src="img/left-bracket.svg" class="left-bracket bracket" />
+          <img src="img/right-bracket.svg" class="right-bracket bracket" />
+          <div class="img-container">
+            <img src="img/pic-nobg.png" alt="Beltagy Picture" />
           </div>
         </div>
-      </main>
+        <!-- Text Under Picture -->
+        <div class="text">
+          <h2 class="highlighted-text">Hello, I'm Front End Developer.</h2>
+          <p>
+            My name is <span class="highlighted-text">Mohammed Beltagy</span>,
+            lives in Egypt.
+          </p>
+          <p>
+            I can build you a website using:
+            <span class="highlighted-text">HTML</span>,
+            <span class="highlighted-text">CSS</span>,
+            <span class="highlighted-text">JAVASCRIPT</span>&
+            <span class="highlighted-text">GITHUB</span>
+          </p>
+        </div>
+      </div>
+      <div class="projects-bg"></div>
+    </main>
+
+    <!-- Projects -->
+    <section class="projects-section">
+      <div class="projects">
+        <article>
+          <a class="img-container" href="3" target="_blank">
+            <img src="img/temp-projects/temp-3.jpg" alt="lorem" />
+          </a>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum,
+            deserunt?
+          </p>
+        </article>
+
+        <article>
+          <a class="img-container" href="3" target="_blank">
+            <img src="img/temp-projects/temp-3.jpg" alt="lorem" />
+          </a>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum,
+            deserunt?
+          </p>
+        </article>
+
+        <article>
+          <a class="img-container" href="3" target="_blank">
+            <img src="img/temp-projects/temp-3.jpg" alt="lorem" />
+          </a>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum,
+            deserunt?
+          </p>
+        </article>
+
+        <article>
+          <a class="img-container" href="3" target="_blank">
+            <img src="img/temp-projects/temp-3.jpg" alt="lorem" />
+          </a>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum,
+            deserunt?
+          </p>
+        </article>
+
+        <article>
+          <a class="img-container" href="3" target="_blank">
+            <img src="img/temp-projects/temp-3.jpg" alt="lorem" />
+          </a>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum,
+            deserunt?
+          </p>
+        </article>
+
+        <article>
+          <a class="img-container" href="3" target="_blank">
+            <img src="img/temp-projects/temp-3.jpg" alt="lorem" />
+          </a>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum,
+            deserunt?
+          </p>
+        </article>
+      </div>
+      <div class="bg-cat-hand">
+        <div class="fingers-container">
+          <span></span><span></span><span></span>
+        </div>
+      </div>
     </section>
 
     <!-- Script -->
@@ -65,11 +131,11 @@
           planeRight = parseFloat(
             getComputedStyle(plane).getPropertyValue("right")
           ),
-          parentWidth = parseFloat(
+          parentHeight = parseFloat(
             getComputedStyle(plane.parentElement).getPropertyValue("height")
           );
         plane.style.transformOrigin =
-          (-1 * parentWidth) / 2 + planeWidth + planeRight + "px";
+          (-1 * parentHeight) / 2 + planeWidth + planeRight + "px";
       }
       changeOrigin();
       window.addEventListener("resize", changeOrigin);
