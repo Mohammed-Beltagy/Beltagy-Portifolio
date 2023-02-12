@@ -5,6 +5,7 @@
     1. Global Rules
     2. Main Section Rules
     3. Projects Section Rules
+    4. Scroll Button Rules
 
     ==================  */
 
@@ -13,6 +14,9 @@
     ============  */
 * {
   box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
 }
 body {
   --bg-color: #bde0fe;
@@ -304,4 +308,59 @@ main .text p {
 }
 .project-container:hover h3 {
   padding: 10px;
+}
+
+/*  ===================
+    Scroll Button Rules
+    ===================  */
+.scroll-button {
+  position: absolute;
+  top: 100vh;
+  transform: translateY(calc(-100% - 10px));
+  right: 10px;
+  /* scale rules */
+  width: 50px;
+  height: 50px;
+  /* style rules */
+  font-weight: 900;
+  color: var(--ordinary-color);
+  background-color: var(--light-bg-color);
+  border-radius: 7px;
+  cursor: pointer;
+  /* transition */
+  transition: transform 0.5s, background-color 0.5s;
+}
+.scroll-button.down {
+  transform: translateY(10px);
+  background-color: var(--bg-color);
+}
+.scroll-button .shape-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.5s;
+}
+.scroll-button .line {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-60%);
+  width: 35px;
+  height: 35px;
+  border-radius: 100px;
+  border: 3px solid var(--ordinary-color);
+  border-color: var(--ordinary-color) var(--ordinary-color) transparent
+    transparent;
+}
+.scroll-button .arrow {
+  position: absolute;
+  left: 75%;
+  top: 25px;
+  transform: translateX(-60%);
+  width: 15px;
+  height: 15px;
+  border-radius: 5px;
+  border: 3px solid var(--ordinary-color);
+  border-color: transparent transparent var(--ordinary-color)
+    var(--ordinary-color);
 }

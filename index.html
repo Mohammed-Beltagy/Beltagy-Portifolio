@@ -98,9 +98,50 @@
       </div>
     </section>
 
+    <!-- Scroll Button -->
+    <div id="scroll-button" class="scroll-button">
+      <div class="shape-container">
+        <div class="line"></div>
+        <div class="arrow"></div>
+      </div>
+    </div>
+
     <!-- Script -->
     <script src="js/plane.js"></script>
     <script src="js/left-bracket.js"></script>
     <script src="js/right-bracket.js"></script>
+    <!-- Scroll Button -->
+    <script>
+      const scrollBtn = document.getElementById("scroll-button");
+      let rotation = 0;
+      function rotateArrow() {
+        rotation += 180;
+        scrollBtn.firstElementChild.style.transform = `rotate(${rotation}deg)`;
+      }
+      window.onscroll = function () {
+        if (
+          window.scrollY >= window.innerHeight * 0.6 &&
+          !scrollBtn.classList.contains("down")
+        ) {
+          scrollBtn.classList.add("down");
+          rotateArrow();
+        } else if (
+          window.scrollY < window.innerHeight * 0.4 &&
+          scrollBtn.classList.contains("down")
+        ) {
+          scrollBtn.classList.remove("down");
+          rotateArrow();
+        }
+      };
+      scrollBtn.onclick = function () {
+        if (this.classList.contains("down")) {
+          window.scrollTo(0, 0);
+        } else {
+          window.scrollTo(0, window.innerHeight);
+        }
+        this.classList.toggle("down");
+        rotateArrow();
+      };
+    </script>
   </body>
 </html>
