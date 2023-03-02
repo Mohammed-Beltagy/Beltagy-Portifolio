@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Beltagy Portifolio</title>
+    <title>Beltagy</title>
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -19,129 +19,35 @@
   </head>
   <body lang="en">
     <!-- Main Section -->
-    <main class="landing">
-      <!-- Planes Background -->
-      <svg
-        id="bg-plane"
-        class="bg-plane"
-        viewBox="0 0 1080 1080"
-        xml:space="preserve"
-      ></svg>
-      <!-- Picture With Brackets -->
-      <div class="img-brackets-container">
-        <svg id="left-bracket" class="left-bracket bracket"></svg>
-        <svg id="right-bracket" class="right-bracket bracket"></svg>
+    <main>
+      <header>
+        <!-- Picture -->
         <div class="img-container">
-          <img src="img/pic-nobg.png" alt="Beltagy Picture" />
+          <img src="images/picture.png" alt="Beltagy Picture" />
         </div>
-      </div>
-      <!-- Text Under Picture -->
-      <div class="text">
-        <h2 class="highlighted-text">Hello, I'm Front End Developer.</h2>
-        <p>
-          My name is <span class="highlighted-text">Mohammed Beltagy</span>,
-          lives in Egypt.
-        </p>
-        <p>
-          I can build you a website using:
-          <span class="highlighted-text">HTML</span>,
-          <span class="highlighted-text">CSS</span>,
-          <span class="highlighted-text">JAVASCRIPT</span>&
-          <span class="highlighted-text">GITHUB</span>
-        </p>
-      </div>
+        <!-- About Text -->
+        <div class="text">
+          <h2 class="highlighted-text">Hello, I'm Front End Developer.</h2>
+          <p>
+            My name is <span class="highlighted-text">Mohammed Beltagy</span>,
+            lives in Egypt.
+          </p>
+          <p>
+            I can build you a website using:
+            <span class="highlighted-text">HTML</span>,
+            <span class="highlighted-text">CSS</span>,
+            <span class="highlighted-text">JAVASCRIPT</span>&
+            <span class="highlighted-text">GITHUB</span>
+          </p>
+        </div>
+      </header>
+      <!-- Projects Section -->
+      <!-- <section class="projects">
+        <div class="title">
+          <h2>Projects</h2>
+          <p>a bit of what I can do</p>
+        </div>
+      </section> -->
     </main>
-
-    <!-- Projects Section -->
-    <section class="projects">
-      <div class="title">
-        <h2>Projects</h2>
-        <p>a bit of what I can do</p>
-      </div>
-      <div class="container">
-        <a href="#" class="project-container">
-          <div class="img-container">
-            <img src="https://picsum.photos/500/300" alt="..." />
-          </div>
-          <h3>title</h3>
-        </a>
-        <a href="#" class="project-container">
-          <div class="img-container">
-            <img src="https://picsum.photos/500/300" alt="..." />
-          </div>
-          <h3>title</h3>
-        </a>
-        <a href="#" class="project-container">
-          <div class="img-container">
-            <img src="https://picsum.photos/500/300" alt="..." />
-          </div>
-          <h3>title</h3>
-        </a>
-        <a href="#" class="project-container">
-          <div class="img-container">
-            <img src="https://picsum.photos/500/300" alt="..." />
-          </div>
-          <h3>title</h3>
-        </a>
-        <a href="#" class="project-container">
-          <div class="img-container">
-            <img src="https://picsum.photos/500/300" alt="..." />
-          </div>
-          <h3>title</h3>
-        </a>
-        <a href="#" class="project-container">
-          <div class="img-container">
-            <img src="https://picsum.photos/500/300" alt="..." />
-          </div>
-          <h3>title</h3>
-        </a>
-      </div>
-    </section>
-
-    <!-- Scroll Button -->
-    <div id="scroll-button" class="scroll-button">
-      <div class="shape-container">
-        <div class="line"></div>
-        <div class="arrow"></div>
-      </div>
-    </div>
-
-    <!-- Script -->
-    <script src="js/plane.js"></script>
-    <script src="js/left-bracket.js"></script>
-    <script src="js/right-bracket.js"></script>
-    <!-- Scroll Button -->
-    <script>
-      const scrollBtn = document.getElementById("scroll-button");
-      let rotation = 0;
-      function rotateArrow() {
-        rotation += 180;
-        scrollBtn.firstElementChild.style.transform = `rotate(${rotation}deg)`;
-      }
-      window.onscroll = function () {
-        if (
-          window.scrollY >= window.innerHeight * 0.6 &&
-          !scrollBtn.classList.contains("down")
-        ) {
-          scrollBtn.classList.add("down");
-          rotateArrow();
-        } else if (
-          window.scrollY < window.innerHeight * 0.4 &&
-          scrollBtn.classList.contains("down")
-        ) {
-          scrollBtn.classList.remove("down");
-          rotateArrow();
-        }
-      };
-      scrollBtn.onclick = function () {
-        if (this.classList.contains("down")) {
-          window.scrollTo(0, 0);
-        } else {
-          window.scrollTo(0, window.innerHeight);
-        }
-        this.classList.toggle("down");
-        rotateArrow();
-      };
-    </script>
   </body>
 </html>
