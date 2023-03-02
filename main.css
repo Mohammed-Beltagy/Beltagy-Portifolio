@@ -1,41 +1,59 @@
-/*  ==================
-    Sections Navigator
-    ==================
-    
-    1. Global Rules
-    2. Main Section Rules
-    3. Projects Section Rules
-    4. Scroll Button Rules
+/* Global Rules */
 
-    ==================  */
-
-/*  ============
-    Global Rules
-    ============  */
 * {
   box-sizing: border-box;
 }
-html {
-  scroll-behavior: smooth;
-}
-body {
+:root {
   --bg-color: #bde0fe;
-  --light-bg-color: rgb(225, 241, 255);
+  --light-bg-color: #fff;
   --accent-color: #5e96f5;
   --ordinary-color: #3b4a65;
   font-family: "Cairo", sans-serif;
-  height: 100vh;
-}
-@media (max-width: 460px) {
-  body {
-    font-size: 13px;
-  }
 }
 .highlighted-text {
   color: var(--accent-color) !important;
   font-weight: bold !important;
   letter-spacing: 0.5px;
 }
+.img-container {
+  overflow: hidden;
+}
+.img-container img {
+  max-width: 100%;
+}
+
+/* Body Rules */
+
+body {
+  position: relative;
+  height: 100dvh;
+  overflow: hidden;
+  /* Background Rules */
+  background-color: var(--bg-color);
+  background: linear-gradient(
+    to bottom right,
+    #bde0fe 0%,
+    #dac4ec 50%,
+    #bde0fe 100%
+  );
+  background-size: 100000% 100000%;
+  animation: move-background 10s linear infinite;
+  /* Position Childs */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@keyframes move-background {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 100% 100%;
+  }
+}
+
+/* Main Rules */
+
 .container {
   padding: 20px 16px;
   margin: 0 auto;
@@ -60,118 +78,9 @@ body {
     width: 1180px;
   }
 }
-.img-container {
-  overflow: hidden;
-}
-.img-container img {
-  max-width: 100%;
-}
 
-/*  ==================
-    Main Section Rules
-    ==================  */
-main {
-  position: relative;
-  height: 100%;
-  overflow: hidden;
-  transform-style: preserve-3d;
-  /* Background Rules */
-  background-color: var(--bg-color);
-  background: linear-gradient(
-    to bottom right,
-    #bde0fe 0%,
-    #dac4ec 50%,
-    #bde0fe 100%
-  );
-  background-size: 100000% 100000%;
-  animation: move-background 10s linear infinite;
-  /* Position Childs */
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-  justify-content: center;
-  align-items: center;
-}
-@keyframes move-background {
-  0% {
-    background-position: 0 0;
-  }
-  100% {
-    background-position: 100% 100%;
-  }
-}
-/* Planes Style */
-main .bg-plane {
-  color: var(--light-bg-color);
-  position: absolute;
-  display: block;
-  z-index: -1;
-  top: calc(50% - 150px);
-  right: -100px;
-  width: 300px;
-  user-select: none;
-  animation: plane-fly 9s ease-in-out infinite;
-}
-@keyframes plane-fly {
-  0% {
-    transform: rotate(-50deg);
-  }
-  50% {
-    transform: rotate(-65deg);
-  }
-  100% {
-    transform: rotate(-50deg);
-  }
-}
-@media (max-width: 460px) {
-  main .bg-plane:nth-child(1) {
-    display: none;
-  }
-}
-/* Picture Style */
-.img-brackets-container {
-  width: fit-content;
-  position: relative;
-  width: 240px;
-  height: 220px;
-}
-@media (max-height: 600px) {
-  .img-brackets-container {
-    width: 160px;
-    height: 140px;
-  }
-}
-@media (max-height: 450px) {
-  .img-brackets-container {
-    display: none;
-  }
-}
-.img-brackets-container .bracket {
-  position: absolute;
-  height: 100%;
-  user-select: none;
-}
-@media (max-width: 400px) {
-  .img-brackets-container .bracket {
-    display: none;
-  }
-}
-.img-brackets-container .left-bracket {
-  color: var(--light-bg-color);
-  right: calc(100% + 30px);
-}
-.img-brackets-container .right-bracket {
-  color: var(--light-bg-color);
-  left: calc(100% + 30px);
-}
-@media (max-width: 460px) {
-  .img-brackets-container .left-bracket {
-    right: calc(100% - 10px);
-  }
-  .img-brackets-container .right-bracket {
-    left: calc(100% - 10px);
-  }
-}
+/* Beltagy Picture */
+
 main .img-container {
   position: relative;
   padding: 0;
@@ -193,7 +102,9 @@ main .img-container img {
   top: -20px;
   left: 0;
 }
-/* Text Style */
+
+/* About Beltagy Style */
+
 main .text {
   margin-top: 30px;
   color: var(--ordinary-color);
@@ -214,11 +125,10 @@ main .text p {
   margin: 0;
 }
 
-/*  ======================
-    Projects Section Rules
-    ======================  */
+/* Projects Rules */
+
 .projects {
-  min-height: 100vh;
+  /* min-height: 100vh; */
   display: grid;
   grid-template-rows: auto 1fr;
 }
@@ -253,114 +163,4 @@ main .text p {
   height: 1px;
   background-color: #597097;
   border-radius: 10px;
-}
-.projects .container {
-  overflow: hidden;
-  display: grid;
-  gap: 20px;
-  align-content: center;
-}
-@media (min-width: 768px) {
-  .projects .container {
-    grid-template-columns: 1fr 1fr;
-  }
-}
-@media (min-width: 992px) {
-  .projects .container {
-    grid-template-columns: 1fr 1fr 1fr;
-  }
-}
-@media (min-width: 1200px) {
-  .projects .container {
-    grid-template-columns: 1fr 1fr 1fr;
-  }
-}
-.project-container {
-  position: relative;
-  border: 3px solid var(--ordinary-color);
-  border-radius: 5px;
-  overflow: hidden;
-  cursor: pointer;
-  aspect-ratio: 5 / 3;
-}
-.project-container .img-container {
-  width: 100%;
-  transition: transform 0.5s;
-}
-.project-container .img-container img {
-  width: 100%;
-}
-.project-container:hover .img-container {
-  transform: scale(1.2) rotate(3deg);
-}
-.project-container h3 {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  margin: 0;
-  padding: 30% 0 10px 10px;
-  width: 100%;
-  background-image: linear-gradient(to top, #0006, #0000);
-  color: #fff;
-  font-size: 1.5em;
-  text-transform: uppercase;
-  transition: padding 0.5s;
-}
-.project-container:hover h3 {
-  padding: 10px;
-}
-
-/*  ===================
-    Scroll Button Rules
-    ===================  */
-.scroll-button {
-  position: absolute;
-  top: 100vh;
-  transform: translateY(calc(-100% - 10px));
-  right: 10px;
-  /* scale rules */
-  width: 50px;
-  height: 50px;
-  /* style rules */
-  font-weight: 900;
-  color: var(--ordinary-color);
-  background-color: var(--light-bg-color);
-  border-radius: 7px;
-  cursor: pointer;
-  /* transition */
-  transition: transform 0.5s, background-color 0.5s;
-}
-.scroll-button.down {
-  transform: translateY(10px);
-  background-color: var(--bg-color);
-}
-.scroll-button .shape-container {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  transition: transform 0.5s;
-}
-.scroll-button .line {
-  position: absolute;
-  top: 10px;
-  left: 50%;
-  transform: translateX(-60%);
-  width: 35px;
-  height: 35px;
-  border-radius: 100px;
-  border: 3px solid var(--ordinary-color);
-  border-color: var(--ordinary-color) var(--ordinary-color) transparent
-    transparent;
-}
-.scroll-button .arrow {
-  position: absolute;
-  left: 75%;
-  top: 25px;
-  transform: translateX(-60%);
-  width: 15px;
-  height: 15px;
-  border-radius: 5px;
-  border: 3px solid var(--ordinary-color);
-  border-color: transparent transparent var(--ordinary-color)
-    var(--ordinary-color);
 }
