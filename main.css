@@ -71,7 +71,7 @@ main {
 }
 header,
 .projects {
-  padding: 30px;
+  padding: 40px 30px;
 }
 @media (min-width: 576px) {
   main {
@@ -85,7 +85,7 @@ header,
 }
 @media (min-width: 992px) {
   main {
-    width: 800px;
+    width: 840px;
   }
 }
 
@@ -93,35 +93,65 @@ header,
 
 header {
   display: flex;
+  flex-direction: column;
   align-items: center;
   gap: 20px;
+  text-align: center;
   background-color: #fff9;
+  font-size: 0.8rem;
+}
+@media (min-width: 576px) {
+  header {
+    font-size: 1rem;
+  }
+}
+@media (min-width: 768px) {
+  header {
+    flex-direction: row;
+    text-align: start;
+  }
 }
 
 /* Beltagy Picture */
 
 header .picture {
   flex-shrink: 0;
-  width: 150px;
+  width: min(250px, 100%);
   aspect-ratio: 1 / 1;
   /* border-radius: 51% 49% 59% 41% / 80% 50% 50% 20%; */
   background-color: #e1f1ff;
   border-radius: 100%;
   /* border: 5px solid var(--ordinary-color); */
 }
+@media (min-width: 768px) {
+  header .picture {
+    width: 150px;
+  }
+}
 header .picture img {
   transform: scale(1.1);
 }
 header .icons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
   flex-shrink: 0;
   width: 30px;
+}
+@media (min-width: 768px) {
+  header .icons {
+    display: block;
+  }
 }
 header .icons a {
   width: 100%;
   display: block;
+  flex-shrink: 0;
 }
-header .icons a:first-child {
-  margin-bottom: 10px;
+@media (min-width: 768px) {
+  header .icons a:first-child {
+    margin-bottom: 10px;
+  }
 }
 /* About Beltagy Style */
 
@@ -154,7 +184,7 @@ header .text p {
 }
 .projects h2 {
   margin: 0 auto;
-  padding: 0px 10px 60px;
+  padding: 0px 10px 0;
   width: fit-content;
   text-transform: uppercase;
   font-size: 3em;
@@ -162,9 +192,14 @@ header .text p {
   letter-spacing: -2px;
   color: var(--ordinary-color);
 }
+@media (max-width: 320px) {
+  .projects h2 {
+    font-size: 2em;
+  }
+}
 .projects h2 + p {
   position: relative;
-  margin: -60px auto 60px;
+  margin: 0 auto 60px;
   width: fit-content;
   text-transform: capitalize;
   font-size: 1.1em;
@@ -173,6 +208,12 @@ header .text p {
   color: #597097;
   opacity: 0.7;
   /* word-spacing: -2px; */
+}
+@media (max-width: 320px) {
+  .projects h2 + p {
+    font-size: 0.8em;
+    letter-spacing: 1px;
+  }
 }
 .projects h2 + p::after {
   content: "";
@@ -193,12 +234,12 @@ header .text p {
 }
 @media (min-width: 768px) {
   .projects .container {
-    grid-template-columns: repeat(2, 335px);
+    grid-template-columns: repeat(3, 220px);
   }
 }
 @media (min-width: 992px) {
   .projects .container {
-    grid-template-columns: repeat(2, 350px);
+    grid-template-columns: repeat(3, 250px);
   }
 }
 
