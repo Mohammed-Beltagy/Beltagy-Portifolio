@@ -5,7 +5,7 @@
 }
 :root {
   --bg-color: #bde0fe;
-  --light-bg-color: #fff;
+  --light-bg-color: #e1f1ff;
   --accent-color: #5e96f5;
   --ordinary-color: #3b4a65;
   font-family: "Cairo", sans-serif;
@@ -22,14 +22,12 @@
   max-width: 100%;
 }
 
-/* Body Rules */
+/* Body */
 
 body {
   position: relative;
-  height: 100dvh;
-  overflow: hidden;
+  min-height: 100dvh;
   /* Background Rules */
-  background-color: var(--bg-color);
   background: linear-gradient(
     to bottom right,
     #bde0fe 0%,
@@ -41,7 +39,13 @@ body {
   /* Position Childs */
   display: flex;
   justify-content: center;
-  align-items: center;
+  padding: 10% 1rem;
+}
+@media (min-width: 768px) {
+  body {
+    height: 100dvh;
+    align-items: center;
+  }
 }
 @keyframes move-background {
   0% {
@@ -52,74 +56,90 @@ body {
   }
 }
 
-/* Main Rules */
+/* Main */
 
-.container {
-  padding: 20px 16px;
-  margin: 0 auto;
+main {
+  /* children position */
+  display: grid;
+  grid-template-rows: auto 1fr;
+  align-items: space-between;
+  /* background rules */
+  border-radius: 25px;
+  background-image: linear-gradient(to right bottom, #fff6, #fff3);
+  backdrop-filter: blur(20px);
+  overflow: hidden;
+}
+header,
+.projects {
+  padding: 30px;
 }
 @media (min-width: 576px) {
-  .container {
+  main {
     width: 570px;
   }
 }
 @media (min-width: 768px) {
-  .container {
-    width: 760px;
+  main {
+    width: 750px;
   }
 }
 @media (min-width: 992px) {
-  .container {
-    width: 980px;
+  main {
+    width: 800px;
   }
 }
-@media (min-width: 1200px) {
-  .container {
-    width: 1180px;
-  }
+
+/* Header */
+
+header {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  background-color: #fff9;
 }
 
 /* Beltagy Picture */
 
-main .img-container {
-  position: relative;
-  padding: 0;
-  margin-bottom: 20px;
+header .picture {
+  flex-shrink: 0;
+  width: 150px;
+  aspect-ratio: 1 / 1;
+  /* border-radius: 51% 49% 59% 41% / 80% 50% 50% 20%; */
+  background-color: #e1f1ff;
+  border-radius: 100%;
+  /* border: 5px solid var(--ordinary-color); */
+}
+header .picture img {
+  transform: scale(1.1);
+}
+header .icons {
+  flex-shrink: 0;
+  width: 30px;
+}
+header .icons a {
   width: 100%;
-  height: 100%;
-  border-radius: 51% 49% 59% 41% / 80% 50% 50% 20%;
+  display: block;
 }
-main .img-container::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: var(--light-bg-color);
+header .icons a:first-child {
+  margin-bottom: 10px;
 }
-main .img-container img {
-  position: absolute;
-  top: -20px;
-  left: 0;
-}
-
 /* About Beltagy Style */
 
-main .text {
-  margin-top: 30px;
+header .text {
   color: var(--ordinary-color);
   line-height: 1.3;
 }
-main .text h2 {
+header .text h2 {
   font-size: 1.6em;
-  margin: 10px;
+  margin: 10px 0 10px;
+  padding: 0;
 }
 @media (max-height: 600px) {
-  main .text {
+  header .text {
     margin-top: 0;
   }
 }
-main .text p {
+header .text p {
   font-size: 1.2em;
   font-weight: bold;
   margin: 0;
@@ -134,7 +154,7 @@ main .text p {
 }
 .projects h2 {
   margin: 0 auto;
-  padding: 60px 10px;
+  padding: 0px 10px 60px;
   width: fit-content;
   text-transform: uppercase;
   font-size: 3em;
@@ -163,4 +183,53 @@ main .text p {
   height: 1px;
   background-color: #597097;
   border-radius: 10px;
+}
+.projects .container {
+  display: grid;
+  grid-template-columns: auto;
+  gap: 15px;
+  width: fit-content;
+  margin: auto;
+}
+@media (min-width: 768px) {
+  .projects .container {
+    grid-template-columns: repeat(2, 335px);
+  }
+}
+@media (min-width: 992px) {
+  .projects .container {
+    grid-template-columns: repeat(2, 350px);
+  }
+}
+
+.project-container {
+  position: relative;
+  /* border: 3px solid var(--ordinary-color); */
+  border-radius: 5px;
+  overflow: hidden;
+  cursor: pointer;
+  aspect-ratio: 12 / 8;
+}
+.project-container .img-container {
+  width: 100%;
+  transition: transform 0.5s;
+}
+.project-container:hover .img-container {
+  transform: scale(1.2);
+}
+.project-container h3 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  margin: 0;
+  padding: 60% 0 10px 10px;
+  width: 100%;
+  background-image: linear-gradient(to top, #fff7, #fff4);
+  color: var(--ordinary-color);
+  font-size: 1.5em;
+  text-transform: uppercase;
+  transition: padding 0.5s;
+}
+.project-container:hover h3 {
+  padding: 10px;
 }
